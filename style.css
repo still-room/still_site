@@ -1,0 +1,107 @@
+/* =========================
+   基本リセット
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   全体
+========================= */
+body {
+  background-color: #e8e3db; /* 紙色・くすみ */
+  color: #444;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+/* =========================
+   共通スペース
+========================= */
+.space {
+  width: 100%;
+}
+
+/* 上部余白（反響防止） */
+.top-gap {
+  height: 12vh;
+}
+
+/* 下部余白（自然終了） */
+.bottom-gap {
+  height: 20vh;
+}
+
+/* =========================
+   トップ：3作品横並び
+========================= */
+.top-row {
+  display: flex;
+  gap: 4vw;                 /* 作品間の空気 */
+  padding: 0 8vw;           /* 画面左右余白 */
+  align-items: flex-start;
+}
+
+.top-row img {
+  flex: 1 1 0;              /* 均等割り */
+  width: 0;                 /* ← これが重要 */
+  height: auto;
+  max-height: 70vh;         /* 縦の暴走防止 */
+  object-fit: contain;      /* トリミングしない */
+  display: block;
+  pointer-events: none;     /* UI化させない */
+  user-select: none;
+}
+
+/* =========================
+   縦スタック（将来用／silence含む）
+========================= */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6vh;
+  padding: 0 8vw;
+}
+
+.stack img {
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =========================
+   アンカー（still 等）
+========================= */
+.anchor {
+  margin-top: 8vh;
+  text-align: center;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: #888;
+}
+
+/* =========================
+   極小リンク（silence導線）
+========================= */
+.micro-link {
+  display: block;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* =========================
+   完全無反応ポリシー
+========================= */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  -webkit-user-drag: none;
+}
