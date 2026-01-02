@@ -105,3 +105,12 @@ a {
 img {
   -webkit-user-drag: none;
 }
+.mark{
+  text-align: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  opacity: 0.28;
+  user-select: none;
+  pointer-events: none;
+}
+
