@@ -113,4 +113,27 @@ img {
   user-select: none;
   pointer-events: none;
 }
+/* =========================
+   note導線（沈黙リンク）
+========================= */
+.quiet-link {
+  margin-top: 10vh;     /* 作品を見終えた後の距離 */
+  text-align: center;
+  font-size: 0.75rem;   /* 小さめ */
+  letter-spacing: 0.05em;
+  opacity: 0.6;         /* 目立たせない */
+}
+
+.quiet-link a {
+  color: inherit;
+  text-decoration: underline; /* 下線あり。消したければ none */
+  text-underline-offset: 2px;
+}
+
+.quiet-link a:hover,
+.quiet-link a:focus {
+  color: inherit;
+  text-decoration: underline;
+  outline: none;
+}
 
