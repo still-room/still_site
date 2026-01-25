@@ -30,8 +30,9 @@ body {
 }
 
 /* 下部余白（自然終了） */
-.bottom-gap {
-  height: 20vh;
+.bottom-gap{
+  min-height: 100vh;   /* ←これが本体：必ず1画面分沈める */
+  height: auto;
 }
 
 /* =========================
@@ -105,28 +106,34 @@ a {
 img {
   -webkit-user-drag: none;
 }
-.mark{
+
+/* =========================
+   痕跡（白峰紗夜）
+========================= */
+.mark {
   text-align: center;
   font-size: 0.7rem;
   letter-spacing: 0.22em;
-  opacity: 0.28;
+  opacity: 0.22;            /* 少し薄く */
+  margin-top: 2vh;          /* 余白の“終わり”感を出す */
   user-select: none;
   pointer-events: none;
 }
+
 /* =========================
    note導線（沈黙リンク）
 ========================= */
 .quiet-link {
-  margin-top: 10vh;     /* 作品を見終えた後の距離 */
+  margin-top: 14vh;         /* さらに距離を取る */
   text-align: center;
-  font-size: 0.75rem;   /* 小さめ */
+  font-size: 0.75rem;
   letter-spacing: 0.05em;
-  opacity: 0.6;         /* 目立たせない */
+  opacity: 0.28;            /* もっと薄くする（要望） */
 }
 
 .quiet-link a {
   color: inherit;
-  text-decoration: underline; /* 下線あり。消したければ none */
+  text-decoration: underline;
   text-underline-offset: 2px;
 }
 
@@ -137,3 +144,49 @@ img {
   outline: none;
 }
 
+/* =========================
+   スマホ調整：タイトル＆導線を“下に追いやる”
+========================= */
+@media (max-width: 768px) {
+  .bottom-gap {
+    height: 60vh;           /* ここが本体。スクロール必須にする */
+  }
+
+  .mark {
+    opacity: 0.20;
+    margin-top: 2vh;
+  }
+
+  .quiet-link {
+    margin-top: 18vh;       /* タイトルの後もしっかり距離 */
+    opacity: 0.22;          /* さらに薄く */
+  }
+}
+/* =========================
+   画面高さが低い場合も沈める（PC対策）
+========================= */
+@media (max-height: 700px) {
+  .bottom-gap {
+    height: 65vh;
+  }
+
+  .quiet-link {
+    margin-top: 20vh;
+    opacity: 0.22;
+  }
+}
+@media (max-width: 768px), (max-height: 700px) {
+  .bottom-gap {
+    height: 65vh;
+  }
+
+  .quiet-link {
+    margin-top: 20vh;
+    opacity: 0.22;
+  }
+}
+.bottom-gap{
+  min-height: 100vh;
+  min-height: 100svh;  /* 対応ブラウザではこっちが安定 */
+  height: auto;
+}
